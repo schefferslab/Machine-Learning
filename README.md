@@ -5,3 +5,6 @@ _A repository for small exercises and tutorials geared towards learning and leve
 
 **[Google Drive Link](https://drive.google.com/drive/folders/1n7WbwPrgq6WPnF1hqfUhXHqvpVx41HCU?usp=sharing)**
 
+
+Caret bookdown:  
+http://topepo.github.io/caret/index.html  

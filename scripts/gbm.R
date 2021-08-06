@@ -30,6 +30,8 @@ set.seed(2018)
 # caret package: Max Kuhn, v1.0 was in 2008 but has really picked up steam 
 # in the past few years:
 # https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=TMDDykAAAAAJ
+# Bookdown for caret package:
+# http://topepo.github.io/caret/index.html
 library(caret)
 # For building decision trees
 library(rpart)
@@ -139,10 +141,10 @@ getModelInfo()$gbm$parameters
 # Here's a grid of parameter values. 4 possible n.trees, 5 possible interaction.depths,
 # 5 possible shrinkages, 4 possible n.minobsinnode
 # 4 x 5 x 5 x 4 = 400 models, for each of which we run CV. A lot of model training!
-myGrid <- expand.grid(n.trees = c (150, 175, 200, 225),
-                       interaction.depth = c (5, 6, 7, 8, 9),
-                       shrinkage = c (0.075, 0.1, 0.125, 0.15, 0.2),
-                       n.minobsinnode = c (7, 10, 12, 15))
+myGrid <- expand.grid(n.trees = c(150, 175, 200, 225),
+                       interaction.depth = c(5, 6, 7, 8, 9),
+                       shrinkage = c(0.075, 0.1, 0.125, 0.15, 0.2),
+                       n.minobsinnode = c(7, 10, 12, 15))
 
 # Train all 400 models
 if (fresh_start) {
@@ -168,7 +170,7 @@ if (fresh_start) {
   gbm_best_train_time <- system.time({
     gbm_best_tree <- train(medv ~., data = Boston, method = "gbm",
                            trControl = trainctrl,
-                           tuneGrid = myGrid, verbose = FALSE)
+                           tuneGrid = myGrid, verbose = TRUE)
   })
 }
 
